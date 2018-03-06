@@ -4,7 +4,7 @@ namespace App\Controllers\Admin;
 
 use App\Biz\Admin\Role;
 use App\Biz\Auth\User;
-use App\Biz\BizException;
+use App\Common\Exceptions\BizException;
 use App\Common\Enums\ErrorCode;
 use App\Common\Validator\Admin\UpdateUserRoleValidator;
 use App\Common\Validator\Admin\UserAddValidator;

@@ -8,7 +8,7 @@
 // +----------------------------------------------------------------------
 namespace App\Biz\Admin;
 
-use App\Biz\BizException;
+use App\Common\Exceptions\BizException;
 use App\Common\Enums\ErrorCode;
 use App\Common\Enums\SystemCode;
 use App\Core\System;

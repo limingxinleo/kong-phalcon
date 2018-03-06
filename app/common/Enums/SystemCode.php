@@ -10,6 +10,8 @@ namespace App\Common\Enums;
 
 class SystemCode
 {
+    const HTTP_X_AUTH_TOKEN = 'X-AUTH-TOKEN';
+
     // 管理员权限
     const ADMIN_USER_SUPER_TYPE = 1; // 超级管理员
     const ADMIN_USER_NORMAL_TYPE = 0; // 普通管理员

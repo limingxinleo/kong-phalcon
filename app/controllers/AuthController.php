@@ -9,7 +9,7 @@
 namespace App\Controllers;
 
 use App\Biz\Auth\User;
-use App\Biz\BizException;
+use App\Common\Exceptions\BizException;
 use App\Common\Enums\ErrorCode;
 use App\Common\Enums\SystemCode;
 use App\Models\Role as RoleModel;
@@ -27,10 +27,10 @@ abstract class AuthController extends Controller
     {
         parent::beforeExecuteRoute();
 
-        if (!$this->request->hasHeader('X-AUTH-TOKEN')) {
+        if (!$this->request->hasHeader(SystemCode::HTTP_X_AUTH_TOKEN)) {
             throw new BizException(ErrorCode::$ENUM_TOKEN_REQUIRED);
         }
-        $token = $this->request->getHeader('X-AUTH-TOKEN');
+        $token = $this->request->getHeader(SystemCode::HTTP_X_AUTH_TOKEN);
 
         $user = User::getInstance()->getUserCache($token);
 

@@ -9,7 +9,7 @@
 namespace App\Biz\Auth;
 
 use App\Biz\Base;
-use App\Biz\BizException;
+use App\Common\Exceptions\BizException;
 use App\Common\Enums\ErrorCode;
 use App\Models\User as UserModel;
 use App\Utils\Redis;
