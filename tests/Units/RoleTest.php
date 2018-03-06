@@ -48,7 +48,7 @@ class RoleTest extends HttpTestCase
 
         $this->assertEquals(0, $res['code']);
         $this->assertArrayHasKey('total', $res['data']);
-        $this->assertArrayHasKey('list', $res['data']);
+        $this->assertArrayHasKey('items', $res['data']);
     }
 
     public function testRoleRoutersUpdateCase()

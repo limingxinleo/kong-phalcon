@@ -107,10 +107,10 @@ class RoleController extends AuthController
             ]);
         }
 
-        $total = [];
+        $items = [];
         foreach ($routers as $router) {
             $bound = $searchType == SystemCode::ADMIN_ROUTER_SEARCH_TYPE_BOUND ?: in_array($router->id, $routes);
-            $total[] = [
+            $items[] = [
                 'id' => $router->id,
                 'name' => $router->name,
                 'route' => $router->route,
@@ -119,7 +119,7 @@ class RoleController extends AuthController
         }
 
         return Response::success([
-            'list' => $total,
+            'items' => $items,
             'total' => $count
         ]);
     }
