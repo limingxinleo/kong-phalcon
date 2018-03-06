@@ -21,6 +21,8 @@ class Response
         static::log($data);
 
         $response->setHeader('Access-Control-Allow-Origin', '*');
+        $response->setHeader('Access-Control-Allow-Headers', '*');
+
         return $response->setJsonContent($data);
     }
 
@@ -45,7 +47,7 @@ class Response
     public static function success($data = null)
     {
         $result = [];
-        $result['success'] = true;
+        $result['code'] = 0;
         if (isset($data)) {
             $result['data'] = $data;
         }
@@ -63,9 +65,8 @@ class Response
         }
 
         return static::response([
-            'success' => false,
-            'errorCode' => $code,
-            'errorMessage' => $message
+            'code' => $code,
+            'message' => $message
         ]);
     }
 }

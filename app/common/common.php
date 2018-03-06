@@ -29,7 +29,7 @@ if (!function_exists('config')) {
      */
     function config($key)
     {
-        return \Xin\Phalcon\Config\Center\Client::getInstance()->get($key);
+        return di('configCenter')->get($key);
     }
 }
 
