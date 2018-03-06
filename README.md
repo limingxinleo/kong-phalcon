@@ -18,3 +18,12 @@
 - [Phalcon快速开发框架](https://github.com/limingxinleo/biz-phalcon)
 - [Phalcon基础开发框架](https://github.com/limingxinleo/basic-phalcon)
 
+## 项目介绍
+本仓库为Admin后台接口，基于[Phalcon基础开发框架](https://github.com/limingxinleo/basic-phalcon.git)开发。
+API模块[API](https://github.com/limingxinleo/service-admin-api)和[前端H5](https://github.com/limingxinleo/service-admin-vue)
+
+API项目已完成基本的RBAC权限管理，对于其他应用管理，可以使用内部RPC协议，进行封装
+1. [Thrift RPC](https://github.com/limingxinleo/service-admin-thrift-api)
+2. [Swoole RPC](https://github.com/limingxinleo/x-swoole-rpc)
+3. [Http RPC](https://github.com/limingxinleo/x-http-rpc)
+
