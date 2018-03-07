@@ -53,8 +53,7 @@ abstract class HttpTestCase extends UnitTestCase
         ]);
 
         if ($res['code'] !== 0) {
-            dump($res);
-            throw new \Exception('登录失败');
+            throw new \Exception($res['message'], $res['code']);
         }
 
         $token = $res['data']['token'];
