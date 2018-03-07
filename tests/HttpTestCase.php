@@ -52,7 +52,8 @@ abstract class HttpTestCase extends UnitTestCase
             'password' => 'superadmin'
         ]);
 
-        if ($res['code'] != 0) {
+        if ($res['code'] !== 0) {
+            dump($res);
             throw new \Exception('登录失败');
         }
 
