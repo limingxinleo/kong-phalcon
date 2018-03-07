@@ -38,7 +38,7 @@ abstract class AuthController extends Controller
             // 非超级管理员，判断管理员是否有权限访问
             $uri = $this->request->getURI();
             preg_match('/(.*)\?/', $uri, $res);
-            $uri = $res[1] ?? '/*';
+            $uri = isset($res[1]) ? $res[1] : '/*';
 
             $pass = false;
             /** @var RoleModel $role */
