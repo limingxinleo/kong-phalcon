@@ -14,6 +14,12 @@ use GuzzleHttp\Exception\ClientException;
 use limx\Support\Arr;
 use Xin\Traits\Common\InstanceTrait;
 
+/**
+ * Class KongClient
+ * @package App\Common\Clients
+ * @method addService($name, $url)
+ * @method services()
+ */
 class KongClient
 {
     // composer require limingxinleo/x-trait-common

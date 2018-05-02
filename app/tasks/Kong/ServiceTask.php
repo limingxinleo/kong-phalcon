@@ -24,7 +24,6 @@ class ServiceTask extends Task
         echo Color::colorize('  php run kong:service@[action]', Color::FG_LIGHT_GREEN) . PHP_EOL . PHP_EOL;
 
         echo Color::head('Actions:') . PHP_EOL;
-        echo Color::colorize('  services        查看服务列表', Color::FG_LIGHT_GREEN) . PHP_EOL;
         echo Color::colorize('  add             新增服务', Color::FG_LIGHT_GREEN) . PHP_EOL;
     }
 
@@ -38,15 +37,8 @@ class ServiceTask extends Task
         $name = $validator->getValue('name');
         $url = $validator->getValue('url');
 
-        $res = KongClient::getInstance()->add($name, $url);
+        $res = KongClient::getInstance()->addService($name, $url);
         echo Color::colorize('新增服务成功！', Color::FG_LIGHT_GREEN) . PHP_EOL;
-    }
-
-    public function servicesAction()
-    {
-        $client = KongHandler::getInstance();
-        $res = $client->services();
-        dd($res);
     }
 }
 
