@@ -14,6 +14,7 @@ use App\Utils\Response;
 use Exception;
 use ErrorException;
 use Phalcon\DI\FactoryDefault;
+use Xin\Cli\Color;
 use Xin\Phalcon\Logger\Sys;
 
 class Handler
@@ -82,7 +83,8 @@ class Handler
         } else {
             $this->errorLogger->error($msg);
         }
-        echo $msg;
+        echo Color::colorize("ErrorCode: {$ex->getCode()}", Color::FG_LIGHT_RED) . PHP_EOL;
+        echo Color::colorize("ErrorMessage: {$ex->getMessage()}", Color::FG_LIGHT_RED) . PHP_EOL;
         exit(255);
     }
 }

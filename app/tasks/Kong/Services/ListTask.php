@@ -2,6 +2,7 @@
 
 namespace App\Tasks\Kong\Services;
 
+use App\Common\Clients\KongClient;
 use App\Common\Clients\KongHandler;
 use App\Tasks\Kong\KongTask;
 use Xin\Cli\Color;
@@ -15,7 +16,7 @@ class ListTask extends KongTask
 
     public function handle($params = [])
     {
-        $client = KongHandler::getInstance();
+        $client = KongClient::getInstance();
         $res = $client->services($params);
 
         $next = $res['next'];
