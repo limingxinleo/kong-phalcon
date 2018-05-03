@@ -27,4 +27,9 @@ class ErrorCode extends Enum
      * @Message('Kong接口报错')
      */
     public static $ENUM_KONG_API_FAIL = 402;
+
+    /**
+     * @Message('Kong节点不存在，请先配置节点信息')
+     */
+    public static $ENUM_KONG_NODES_NOT_EXIST = 1000;
 }

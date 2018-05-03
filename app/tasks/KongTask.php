@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Tasks\Kong;
+namespace App\Tasks;
 
-use App\Tasks\Task;
 use Xin\Cli\Color;
 
-class MenuTask extends Task
+class KongTask extends Task
 {
 
     public function mainAction()
@@ -17,6 +16,7 @@ class MenuTask extends Task
         echo Color::colorize('  php run kong:action', Color::FG_LIGHT_GREEN) . PHP_EOL . PHP_EOL;
 
         echo Color::head('Actions:') . PHP_EOL;
+        echo Color::colorize('  nodes:list          查看节点列表', Color::FG_LIGHT_GREEN) . PHP_EOL;
         echo Color::colorize('  services:list       查看服务列表', Color::FG_LIGHT_GREEN) . PHP_EOL;
         echo Color::colorize('  services:add        查看服务列表', Color::FG_LIGHT_GREEN) . PHP_EOL;
     }

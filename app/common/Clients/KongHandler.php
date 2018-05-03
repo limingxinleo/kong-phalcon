@@ -9,6 +9,9 @@
 namespace App\Common\Clients;
 
 use App\Common\Clients\Kong\ServiceTrait;
+use App\Common\Enums\ErrorCode;
+use App\Common\Exceptions\BizException;
+use App\Models\Repository\Nodes;
 use Psr\Http\Message\ResponseInterface;
 use Xin\Http\Rpc\Client;
 use Xin\Http\Rpc\Exceptions\HttpException;
@@ -20,11 +23,12 @@ class KongHandler extends Client
     use InstanceTrait;
     use ServiceTrait;
 
-    protected $baseUri = 'http://api.demo.phalcon.lmx0536.cn';
-
     public function __construct()
     {
-        $config = di('configCenter')->get('kong');
-        $this->baseUri = $config->host;
+        $node = Nodes::getInstance()->findFirst();
+        if (empty($node)) {
+            throw new BizException(ErrorCode::$ENUM_KONG_NODES_NOT_EXIST);
+        }
+        $this->baseUri = $node->url;
     }
 }
