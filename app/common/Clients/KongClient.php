@@ -17,7 +17,7 @@ use Xin\Traits\Common\InstanceTrait;
 /**
  * Class KongClient
  * @package App\Common\Clients
- * @method addService($name, $url)
+ * @method addService($params = [])
  * @method services($params = [])
  */
 class KongClient

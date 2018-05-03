@@ -13,13 +13,12 @@ trait ServiceTrait
     /**
      * @desc   新增Service
      * @author limx
+     * @param $params
+     * @return mixed
+     * @see    \App\Tasks\Kong\Services\AddTask
      */
-    public function addService($name, $url)
+    public function addService($params)
     {
-        $params = [
-            'name' => $name,
-            'url' => $url
-        ];
         return $this->post('/services/', [
             'form_params' => $params
         ]);
