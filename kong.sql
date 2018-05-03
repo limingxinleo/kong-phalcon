@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.21)
 # Database: kong
-# Generation Time: 2018-05-03 12:44:15 +0000
+# Generation Time: 2018-05-03 13:41:09 +0000
 # ************************************************************
 
 
@@ -28,10 +28,11 @@ DROP TABLE IF EXISTS `nodes`;
 CREATE TABLE `nodes` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '节点名',
-  `host` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '节点地址',
+  `url` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '节点地址',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIQUE_URL` (`url`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
