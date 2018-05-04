@@ -25,6 +25,7 @@ use Xin\Traits\Common\InstanceTrait;
  * @method addRoute($params)
  * @method routes($params = [])
  * @method getRoute($id)
+ * @method updateRoute($id, $params)
  */
 class KongClient
 {

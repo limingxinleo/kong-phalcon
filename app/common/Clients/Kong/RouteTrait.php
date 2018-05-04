@@ -64,4 +64,24 @@ trait RouteTrait
     {
         return $this->get("/routes/{$id}");
     }
+
+    /**
+     * @desc   更新路由
+     * @author limx
+     * @param $id
+     */
+    public function updateRoute($id, $params)
+    {
+        if (isset($params['methods']) && !is_array($params['methods'])) {
+            $params['methods'] = [$params['methods']];
+        }
+
+        if (isset($params['paths']) && !is_array($params['paths'])) {
+            $params['paths'] = [$params['paths']];
+        }
+
+        return $this->patch("/routes/{$id}", [
+            'json' => $params
+        ]);
+    }
 }
