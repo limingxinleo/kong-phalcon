@@ -25,6 +25,22 @@ trait ServiceTrait
     }
 
     /**
+     * @desc   更新服务
+     * @author limx
+     * @param $idOrName The service id or name
+     * @param $params
+     * @return mixed
+     * @see    \App\Tasks\Kong\Services\UpdateTask
+     */
+    public function updateService($idOrName, $params)
+    {
+        unset($params['id']);
+        return $this->patch("/services/{$idOrName}", [
+            'form_params' => $params
+        ]);
+    }
+
+    /**
      * @desc   服务列表
      * @author limx
      * @params offset

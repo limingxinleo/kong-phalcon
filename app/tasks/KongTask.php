@@ -18,7 +18,8 @@ class KongTask extends Task
         echo Color::head('Actions:') . PHP_EOL;
         echo Color::colorize('  nodes:list          查看节点列表', Color::FG_LIGHT_GREEN) . PHP_EOL;
         echo Color::colorize('  services:list       查看服务列表', Color::FG_LIGHT_GREEN) . PHP_EOL;
-        echo Color::colorize('  services:add        查看服务列表', Color::FG_LIGHT_GREEN) . PHP_EOL;
+        echo Color::colorize('  services:add        新增服务', Color::FG_LIGHT_GREEN) . PHP_EOL;
+        echo Color::colorize('  services:update     更新服务', Color::FG_LIGHT_GREEN) . PHP_EOL;
     }
 
 }

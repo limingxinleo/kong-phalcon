@@ -32,4 +32,9 @@ class ErrorCode extends Enum
      * @Message('Kong节点不存在，请先配置节点信息')
      */
     public static $ENUM_KONG_NODES_NOT_EXIST = 1000;
+
+    /**
+     * @Message('更新服务，Id和Name必填一项')
+     */
+    public static $ENUM_KONG_SERVICE_ID_OR_NAME_NOT_EXIST = 1001;
 }
