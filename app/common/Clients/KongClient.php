@@ -28,6 +28,12 @@ use Xin\Traits\Common\InstanceTrait;
  * @method getRoute($id)
  * @method updateRoute($id, $params)
  * @method deleteRoute($id)
+ *
+ * @method addApi($params)
+ * @method getApi($idOrName)
+ * @method deleteApi($idOrName)
+ * @method apis($params = [])
+ * @method updateApi($idOrName, $params)
  */
 class KongClient
 {

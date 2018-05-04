@@ -33,4 +33,3 @@ class UpdateTask extends KongTask
         $this->dump($res);
     }
 }
-

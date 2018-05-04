@@ -20,9 +20,19 @@ class KongTask extends Task
         echo Color::colorize('  services:add        新增服务', Color::FG_LIGHT_GREEN) . PHP_EOL;
         echo Color::colorize('  services:update     更新服务', Color::FG_LIGHT_GREEN) . PHP_EOL;
         echo Color::colorize('  services:info       服务详情', Color::FG_LIGHT_GREEN) . PHP_EOL;
+        echo Color::colorize('  services:delete     删除服务', Color::FG_LIGHT_GREEN) . PHP_EOL;
         echo PHP_EOL;
         echo Color::colorize('  routes:list         路由列表', Color::FG_LIGHT_GREEN) . PHP_EOL;
         echo Color::colorize('  routes:add          新增路由', Color::FG_LIGHT_GREEN) . PHP_EOL;
-
+        echo Color::colorize('  routes:update       更新路由', Color::FG_LIGHT_GREEN) . PHP_EOL;
+        echo Color::colorize('  routes:info         路由详情', Color::FG_LIGHT_GREEN) . PHP_EOL;
+        echo Color::colorize('  routes:delete       删除路由', Color::FG_LIGHT_GREEN) . PHP_EOL;
+        echo PHP_EOL;
+        echo Color::colorize('  apis:list           API列表', Color::FG_LIGHT_GREEN) . PHP_EOL;
+        echo Color::colorize('  apis:add            新增API', Color::FG_LIGHT_GREEN) . PHP_EOL;
+        echo Color::colorize('  apis:update         更新API', Color::FG_LIGHT_GREEN) . PHP_EOL;
+        echo Color::colorize('  apis:info           API详情', Color::FG_LIGHT_GREEN) . PHP_EOL;
+        echo Color::colorize('  apis:delete         删除API', Color::FG_LIGHT_GREEN) . PHP_EOL;
+        echo PHP_EOL;
     }
 }

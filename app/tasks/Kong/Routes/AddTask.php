@@ -27,4 +27,3 @@ class AddTask extends KongTask
         $this->dump($res);
     }
 }
-

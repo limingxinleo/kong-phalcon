@@ -8,14 +8,13 @@
 // +----------------------------------------------------------------------
 namespace App\Common\Clients;
 
+use App\Common\Clients\Kong\ApiTrait;
 use App\Common\Clients\Kong\RouteTrait;
 use App\Common\Clients\Kong\ServiceTrait;
 use App\Common\Enums\ErrorCode;
 use App\Common\Exceptions\BizException;
 use App\Models\Repository\Nodes;
-use Psr\Http\Message\ResponseInterface;
 use Xin\Http\Rpc\Client;
-use Xin\Http\Rpc\Exceptions\HttpException;
 use Xin\Traits\Common\InstanceTrait;
 
 class KongHandler extends Client
@@ -23,7 +22,7 @@ class KongHandler extends Client
     // composer require limingxinleo/x-trait-common
     use InstanceTrait;
 
-    use ServiceTrait, RouteTrait;
+    use ServiceTrait, RouteTrait, ApiTrait;
 
     public function __construct()
     {
