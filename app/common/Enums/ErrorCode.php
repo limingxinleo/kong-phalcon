@@ -37,4 +37,9 @@ class ErrorCode extends Enum
      * @Message('更新服务，Id和Name必填一项')
      */
     public static $ENUM_KONG_SERVICE_ID_OR_NAME_NOT_EXIST = 1001;
+
+    /**
+     * @Message('路由详情，Id必填')
+     */
+    public static $ENUM_KONG_ROUTE_INFO_ID_NOT_EXIST = 1002;
 }
