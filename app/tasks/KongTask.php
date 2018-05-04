@@ -6,7 +6,6 @@ use Xin\Cli\Color;
 
 class KongTask extends Task
 {
-
     public function mainAction()
     {
         echo Color::head('Help:') . PHP_EOL;
@@ -22,6 +21,4 @@ class KongTask extends Task
         echo Color::colorize('  services:update     更新服务', Color::FG_LIGHT_GREEN) . PHP_EOL;
         echo Color::colorize('  services:info       服务详情', Color::FG_LIGHT_GREEN) . PHP_EOL;
     }
-
 }
-

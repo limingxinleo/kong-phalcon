@@ -24,4 +24,3 @@ class AddTask extends KongTask
         }
     }
 }
-

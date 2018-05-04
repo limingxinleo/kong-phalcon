@@ -48,7 +48,9 @@ abstract class KongTask extends Task
 
     protected function dump($result, $index = 0)
     {
-        if ($index > 0) echo PHP_EOL;
+        if ($index > 0) {
+            echo PHP_EOL;
+        }
         if (is_array($result)) {
             foreach ($result as $key => $val) {
                 for ($i = 0; $i < $index; $i++) {
@@ -77,6 +79,4 @@ abstract class KongTask extends Task
 
         throw new BizException(ErrorCode::$ENUM_KONG_SERVICE_ID_OR_NAME_NOT_EXIST);
     }
-
-
 }

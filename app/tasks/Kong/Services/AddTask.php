@@ -27,7 +27,4 @@ class AddTask extends KongTask
         $res = $client->addService($params);
         $this->dump($res);
     }
-
-
 }
-

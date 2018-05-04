@@ -27,4 +27,3 @@ class ListTask extends KongTask
         $this->dump($data);
     }
 }
-

@@ -41,4 +41,3 @@ class ServiceTask extends Task
         echo Color::colorize('新增服务成功！', Color::FG_LIGHT_GREEN) . PHP_EOL;
     }
 }
-

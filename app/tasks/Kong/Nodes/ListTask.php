@@ -25,4 +25,3 @@ class ListTask extends KongTask
         }
     }
 }
-

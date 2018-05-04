@@ -83,5 +83,4 @@ class Nodes extends Model
     {
         return 'nodes';
     }
-
 }

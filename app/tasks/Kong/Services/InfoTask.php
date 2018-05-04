@@ -20,7 +20,4 @@ class InfoTask extends KongTask
         $res = $client->getService($id);
         $this->dump($res);
     }
-
-
 }
-

@@ -8,6 +8,7 @@
 // +----------------------------------------------------------------------
 namespace App\Common\Clients;
 
+use App\Common\Clients\Kong\RouteTrait;
 use App\Common\Clients\Kong\ServiceTrait;
 use App\Common\Enums\ErrorCode;
 use App\Common\Exceptions\BizException;
@@ -21,7 +22,8 @@ class KongHandler extends Client
 {
     // composer require limingxinleo/x-trait-common
     use InstanceTrait;
-    use ServiceTrait;
+
+    use ServiceTrait, RouteTrait;
 
     public function __construct()
     {
