@@ -66,6 +66,16 @@ trait RouteTrait
     }
 
     /**
+     * @desc   删除路由
+     * @author limx
+     * @param $id
+     */
+    public function deleteRoute($id)
+    {
+        return $this->delete("/routes/{$id}");
+    }
+
+    /**
      * @desc   更新路由
      * @author limx
      * @param $id

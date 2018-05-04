@@ -8,6 +8,7 @@
 // +----------------------------------------------------------------------
 namespace App\Tasks\Kong;
 
+use App\Common\Enums\ErrorCode;
 use App\Common\Exceptions\BizException;
 use App\Tasks\Task;
 use Xin\Cli\Color;

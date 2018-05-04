@@ -8,7 +8,7 @@ use App\Common\Exceptions\BizException;
 use App\Tasks\Kong\KongTask;
 use App\Tasks\Task;
 
-class InfoTask extends KongTask
+class DeleteTask extends KongTask
 {
     public $params = [
         'id' => 'The Route id.',
@@ -21,7 +21,7 @@ class InfoTask extends KongTask
         }
         $id = $params['id'];
         $client = KongClient::getInstance();
-        $res = $client->getRoute($id);
+        $res = $client->deleteRoute($id);
         $this->dump($res);
     }
 }

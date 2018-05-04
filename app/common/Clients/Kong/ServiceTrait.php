@@ -65,4 +65,16 @@ trait ServiceTrait
     {
         return $this->get("/services/{$idOrName}");
     }
+
+    /**
+     * @desc   删除服务
+     * @author limx
+     * @param $idOrName
+     * @return mixed
+     * @see    \App\Tasks\Kong\Services\DeleteTask
+     */
+    public function deleteService($idOrName)
+    {
+        return $this->delete("/services/{$idOrName}");
+    }
 }
