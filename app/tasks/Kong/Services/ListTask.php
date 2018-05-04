@@ -24,12 +24,7 @@ class ListTask extends KongTask
 
         echo Color::colorize("next: {$next}", Color::FG_LIGHT_GREEN) . PHP_EOL;
         echo Color::head("data:") . PHP_EOL;
-        foreach ($data as $item) {
-            foreach ($item as $key => $val) {
-                echo Color::colorize("{$key}: {$val}", Color::FG_LIGHT_GREEN) . PHP_EOL;
-            }
-            echo PHP_EOL;
-        }
+        $this->dump($data);
     }
 }
 

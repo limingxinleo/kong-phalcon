@@ -53,4 +53,16 @@ trait ServiceTrait
             'form_params' => $params
         ]);
     }
+
+    /**
+     * @desc   获取服务详情
+     * @author limx
+     * @param $idOrName
+     * @return mixed
+     * @see    \App\Tasks\Kong\Services\InfoTask
+     */
+    public function getService($idOrName)
+    {
+        return $this->get("/services/{$idOrName}");
+    }
 }

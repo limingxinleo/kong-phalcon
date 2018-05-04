@@ -26,23 +26,10 @@ class UpdateTask extends KongTask
 
     public function handle($params = [])
     {
-        $id = $this->getIdOrName($params);
+        $id = $this->getIdOrName();
         $client = KongClient::getInstance();
         $res = $client->updateService($id, $params);
-        dd($res);
-    }
-
-    public function getIdOrName($params)
-    {
-        if (isset($params['id'])) {
-            return $params['id'];
-        }
-
-        if (isset($params['name'])) {
-            return $params['name'];
-        }
-
-        throw new BizException(ErrorCode::$ENUM_KONG_SERVICE_ID_OR_NAME_NOT_EXIST);
+        $this->dump($res);
     }
 }
 
