@@ -11,6 +11,8 @@
 
 [Phalcon 官网](https://docs.phalconphp.com/zh/latest/index.html)
 
+[Kong 官网](https://konghq.com/install/)
+
 [wiki](https://github.com/limingxinleo/simple-subcontrollers.phalcon/wiki)
 
 ### 封装版本
