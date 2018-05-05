@@ -2,6 +2,8 @@
 
 namespace App\Tasks\Kong\Plugins;
 
+use App\Common\Enums\ErrorCode;
+use App\Common\Exceptions\BizException;
 use App\Tasks\Kong\KongTask;
 
 class AddTask extends KongTask
@@ -12,16 +14,20 @@ class AddTask extends KongTask
         'config.{property}' => 'The configuration properties for the Plugin which can be found on the plugins documentation page in the Plugin Gallery.',
     ];
 
-    public $mappers = [
-        'rate-limiting' => [
-
-        ],
-    ];
-
     protected function getParams()
     {
+        $name = $this->argument('name');
+        if (empty($name)) {
+            throw new BizException(ErrorCode::$ENUM_KONG_PLUGIN_NAME_REQUIRED);
+        }
+
         $params = [];
-        foreach ($this->params as $key => $desc) {
+        $config = di('configCenter')->get('kong_plugins')->toArray();
+        if (!isset($config[$name])) {
+            throw new BizException(ErrorCode::$ENUM_KONG_PLUGIN_NAME_NOT_EXIST);
+        }
+
+        foreach ($config[$name] as $key => $desc) {
             if ($data = $this->argument($key)) {
                 $params[$key] = $data;
             }
@@ -31,9 +37,10 @@ class AddTask extends KongTask
 
     public function handle($params = [])
     {
-        $client = KongClient::getInstance();
-        $res = $client->addConsumer($params);
-        $this->dump($res);
+        dd($params);
+//        $client = KongClient::getInstance();
+//        $res = $client->addConsumer($params);
+//        $this->dump($res);
     }
 
     public function pluginMapper($name)

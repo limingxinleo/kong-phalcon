@@ -47,4 +47,14 @@ class ErrorCode extends Enum
      * @Message('消费者ID和Username必填一项')
      */
     public static $ENUM_KONG_CONSUMER_ID_OR_USERNAME_NOT_EXIST = 1003;
+
+    /**
+     * @Message('插件名必填')
+     */
+    public static $ENUM_KONG_PLUGIN_NAME_REQUIRED = 1004;
+
+    /**
+     * @Message('插件不存在')
+     */
+    public static $ENUM_KONG_PLUGIN_NAME_NOT_EXIST = 1005;
 }
