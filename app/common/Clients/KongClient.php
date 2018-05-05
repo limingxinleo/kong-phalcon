@@ -40,6 +40,9 @@ use Xin\Traits\Common\InstanceTrait;
  * @method consumers($params = [])
  * @method updateConsumer($idOrName, $params)
  * @method deleteConsumer($idOrName)
+ *
+ * @method addPlugin($params)
+ * @method plugins($params = [])
  */
 class KongClient
 {

@@ -10,6 +10,7 @@ namespace App\Common\Clients;
 
 use App\Common\Clients\Kong\ApiTrait;
 use App\Common\Clients\Kong\ConsumerTrait;
+use App\Common\Clients\Kong\PluginTrait;
 use App\Common\Clients\Kong\RouteTrait;
 use App\Common\Clients\Kong\ServiceTrait;
 use App\Common\Enums\ErrorCode;
@@ -23,7 +24,7 @@ class KongHandler extends Client
     // composer require limingxinleo/x-trait-common
     use InstanceTrait;
 
-    use ServiceTrait, RouteTrait, ApiTrait, ConsumerTrait;
+    use ServiceTrait, RouteTrait, ApiTrait, ConsumerTrait, PluginTrait;
 
     public function __construct()
     {
