@@ -34,6 +34,12 @@ use Xin\Traits\Common\InstanceTrait;
  * @method deleteApi($idOrName)
  * @method apis($params = [])
  * @method updateApi($idOrName, $params)
+ *
+ * @method addConsumer($params)
+ * @method getConsumer($idOrName)
+ * @method consumers($params = [])
+ * @method updateConsumer($idOrName, $params)
+ * @method deleteConsumer($idOrName)
  */
 class KongClient
 {
@@ -48,8 +54,10 @@ class KongClient
         try {
             return $handler->$name(...$arguments);
         } catch (ClientException $ex) {
-            $json = json_decode($ex->getResponse()->getBody()->getContents(), true);
+            $body = $ex->getResponse()->getBody()->getContents();
+            $json = json_decode($body, true);
             $message = Arr::get($json, 'message');
+            if (empty($message)) $message = $body;
             throw new BizException(ErrorCode::$ENUM_KONG_API_FAIL, $message);
         }
     }

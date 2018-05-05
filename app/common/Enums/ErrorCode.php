@@ -42,4 +42,9 @@ class ErrorCode extends Enum
      * @Message('路由Id必填')
      */
     public static $ENUM_KONG_ROUTE_ID_NOT_EXIST = 1002;
+
+    /**
+     * @Message('消费者ID和Username必填一项')
+     */
+    public static $ENUM_KONG_CONSUMER_ID_OR_USERNAME_NOT_EXIST = 1003;
 }

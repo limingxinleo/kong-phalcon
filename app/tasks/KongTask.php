@@ -36,5 +36,6 @@ class KongTask extends Task
         echo Color::colorize('  apis:info           API详情', Color::FG_LIGHT_GREEN) . PHP_EOL;
         echo Color::colorize('  apis:delete         删除API', Color::FG_LIGHT_GREEN) . PHP_EOL;
         echo PHP_EOL;
+        echo Color::colorize('  consumers:add       新增消费者', Color::FG_LIGHT_GREEN) . PHP_EOL;
     }
 }
