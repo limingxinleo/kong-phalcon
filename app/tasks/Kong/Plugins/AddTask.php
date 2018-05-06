@@ -2,17 +2,21 @@
 
 namespace App\Tasks\Kong\Plugins;
 
+use App\Common\Clients\KongClient;
 use App\Common\Enums\ErrorCode;
 use App\Common\Exceptions\BizException;
 use App\Tasks\Kong\KongTask;
+use limx\Support\Arr;
+use Xin\Cli\Color;
 
 class AddTask extends KongTask
 {
-    public $params = [
-        'name' => 'The name of the Plugin that\'s going to be added. Currently the Plugin must be installed in every Kong instance separately.',
-        'consumer_id' => 'The unique identifier of the consumer that overrides the existing settings for this specific consumer on incoming requests.',
-        'config.{property}' => 'The configuration properties for the Plugin which can be found on the plugins documentation page in the Plugin Gallery.',
-    ];
+    public function handle($params = [])
+    {
+        $client = KongClient::getInstance();
+        $res = $client->addPlugin($params);
+        $this->dump($res);
+    }
 
     protected function getParams()
     {
@@ -32,20 +36,29 @@ class AddTask extends KongTask
                 $params[$key] = $data;
             }
         }
-        return $params;
+
+        return Arr::dot2Array($params);
     }
 
-    public function handle($params = [])
+    protected function help()
     {
-        dd($params);
-//        $client = KongClient::getInstance();
-//        $res = $client->addConsumer($params);
-//        $this->dump($res);
+        $name = $this->argument('name');
+        if (empty($name)) {
+            throw new BizException(ErrorCode::$ENUM_KONG_PLUGIN_NAME_REQUIRED);
+        }
+
+        $params = [];
+        $config = di('configCenter')->get('kong_plugins')->toArray();
+        if (!isset($config[$name])) {
+            throw new BizException(ErrorCode::$ENUM_KONG_PLUGIN_NAME_NOT_EXIST);
+        }
+
+        echo Color::head('参数信息:') . PHP_EOL;
+        foreach ($config[$name] as $key => $desc) {
+            echo Color::colorize("  {$key}: ", Color::FG_LIGHT_RED);
+            echo Color::colorize("{$desc}", Color::FG_LIGHT_GREEN) . PHP_EOL;
+        }
     }
 
-    public function pluginMapper($name)
-    {
-
-    }
 }
 

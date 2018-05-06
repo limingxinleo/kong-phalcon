@@ -23,18 +23,22 @@ abstract class KongTask extends Task
     public function mainAction()
     {
         if ($this->option('help')) {
-            echo Color::head('参数信息:') . PHP_EOL;
-            foreach ($this->params as $key => $desc) {
-                echo Color::colorize("  {$key}: ", Color::FG_LIGHT_RED);
-                echo Color::colorize("{$desc}", Color::FG_LIGHT_GREEN) . PHP_EOL;
-            }
-            return;
+            return $this->help();
         }
 
         $this->handle($this->getParams());
     }
 
     abstract public function handle($params = []);
+
+    protected function help()
+    {
+        echo Color::head('参数信息:') . PHP_EOL;
+        foreach ($this->params as $key => $desc) {
+            echo Color::colorize("  {$key}: ", Color::FG_LIGHT_RED);
+            echo Color::colorize("{$desc}", Color::FG_LIGHT_GREEN) . PHP_EOL;
+        }
+    }
 
     protected function getParams()
     {
