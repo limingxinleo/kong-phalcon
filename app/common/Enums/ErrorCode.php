@@ -57,4 +57,9 @@ class ErrorCode extends Enum
      * @Message('插件不存在')
      */
     public static $ENUM_KONG_PLUGIN_NAME_NOT_EXIST = 1005;
+
+    /**
+     * @Message('插件ID必填')
+     */
+    public static $ENUM_KONG_PLUGIN_ID_REQUIRED = 1006;
 }

@@ -8,6 +8,7 @@
 // +----------------------------------------------------------------------
 return [
     'rate-limiting' => [
+        'id' => 'When update the plugin,the argument is required.',
         'name' => 'The name of the plugin to use, in this case rate-limiting',
         'api_id' => 'The id of the API which this plugin will target.',
         'service_id' => 'The id of the Service which this plugin will target.',

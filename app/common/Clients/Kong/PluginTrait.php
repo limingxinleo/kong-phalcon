@@ -24,16 +24,16 @@ trait PluginTrait
     }
 
     /**
-     * @desc   更新消费者
+     * @desc   更新插件
      * @author limx
      * @param $idOrName
      * @param $params
      * @return mixed
      */
-    public function updatePlugin($idOrName, $params)
+    public function updatePlugin($id, $params)
     {
         unset($params['id']);
-        return $this->patch("/consumers/{$idOrName}", [
+        return $this->patch("/plugins/{$id}", [
             'json' => $params
         ]);
     }
