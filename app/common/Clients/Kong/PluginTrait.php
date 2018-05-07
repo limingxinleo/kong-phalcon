@@ -39,15 +39,15 @@ trait PluginTrait
     }
 
     /**
-     * @desc   获取消费者详情
+     * @desc   获取插件详情
      * @author limx
-     * @param $idOrName
+     * @param $id
      * @return mixed
-     * @see    \App\Tasks\Kong\Consumers\InfoTask
+     * @see    \App\Tasks\Kong\Plugins\InfoTask
      */
-    public function getPlugin($idOrName)
+    public function getPlugin($id)
     {
-        return $this->get("/consumers/{$idOrName}");
+        return $this->get("/plugins/{$id}");
     }
 
     /**

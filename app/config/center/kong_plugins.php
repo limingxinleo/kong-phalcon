@@ -30,4 +30,14 @@ return [
         'config.redis_timeout' => 'When using the redis policy, this property specifies the timeout in milliseconds of any command submitted to the Redis server.',
         'config.redis_database' => 'When using the redis policy, this property specifies Redis database to use.',
     ],
+    'file-log' => [
+        'id' => 'When update the plugin,the argument is required.',
+        'name' => 'The name of the plugin to use, in this case file-log',
+        'api_id' => 'The id of the API which this plugin will target.',
+        'service_id' => 'The id of the Service which this plugin will target.',
+        'route_id' => 'The id of the Route which this plugin will target.',
+        'consumer_id' => 'The id of the Consumer which this plugin will target.',
+        'config.path' => 'The file path of the output log file. The plugin will create the file if it doesn\'t exist yet. Make sure Kong has write permissions to this file.',
+        'config.reopen' => 'Introduced in Kong 0.10.2. Determines whether the log file is closed and reopened on every request. If the file is not reopened, and has been removed/rotated, the plugin will keep writing to the stale file descriptor, and hence lose information.',
+    ],
 ];
