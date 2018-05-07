@@ -20,9 +20,7 @@ class ConnectHandler
 
     public function handle(swoole_websocket_server $server, swoole_http_request $request)
     {
-        // 保存客户端fd
-        $fd = $request->fd;
-        Redis::sadd(RedisCode::KONG_WEBSOCKET_CLIENT_FDS, $fd);
+
     }
 
 }

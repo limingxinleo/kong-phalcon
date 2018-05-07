@@ -9,21 +9,27 @@
 namespace App\Biz\Kong\Workers;
 
 use App\Common\Clients\KongClient;
+use App\Common\Enums\RedisCode;
 use App\Utils\Redis;
 use Xin\Traits\Common\InstanceTrait;
 use App\Models\Repository\Nodes as NodeRepository;
 
-class Nodes
+class NodeStatus
 {
     use InstanceTrait;
 
-    public function getStatus()
+    public function get()
     {
         $key = 'kong:nodes:status';
-        if ($res = Redis::get($key)) {
-            return json_decode($res, true);
+        $res = Redis::get($key);
+        if (empty($res)) {
+            return [];
         }
+        return json_decode($res, true);
+    }
 
+    public function refresh()
+    {
         $nodes = NodeRepository::getInstance()->findAll();
         $clients = [];
         foreach ($nodes as $node) {
@@ -38,7 +44,7 @@ class Nodes
             $results[] = $result;
         }
 
-        Redis::set($key, json_encode($results), 60);
+        Redis::set(RedisCode::KONG_NODES_STATUS, json_encode($results), 60);
         return $results;
     }
 }
