@@ -32,7 +32,6 @@ class ServerHandler
         $process = new swoole_process(function ($process) use ($server) {
             while (true) {
                 $result = NodeStatus::getInstance()->get();
-                dump(count($server->connections));
                 foreach ($server->connections as $fd) {
                     Response::getInstance()->success($fd, 'status', $result);
                 }
