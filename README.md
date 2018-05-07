@@ -17,6 +17,18 @@
 - [Thrift GO服务版本](https://github.com/limingxinleo/thrift-go-phalcon-project)
 - [Phalcon快速开发框架](https://github.com/limingxinleo/biz-phalcon)
 - [Phalcon基础开发框架](https://github.com/limingxinleo/basic-phalcon)
+- [Zipkin开发版本](https://github.com/limingxinleo/zipkin-phalcon)
+- [Eureka开发版本](https://github.com/limingxinleo/eureka-phalcon)
+- [RabbitMQ](https://github.com/limingxinleo/rabbitmq-phalcon)
+- [ELK开发版本](https://github.com/limingxinleo/elk-phalcon)
+
+### 测试以及其他DEMO
+- [框架测试](https://github.com/limingxinleo/phalcon-unit-test)
+- [多库单表](https://github.com/limingxinleo/service-demo-order)
+- [Elasticsearch](https://github.com/Aquarmini/elasticsearch-demo-phalcon)
+- [kafka](https://github.com/Aquarmini/kafka-demo-phalcon)
+- [机器学习](https://github.com/Aquarmini/ml-demo-phalcon)
+- [正则匹配](https://github.com/Aquarmini/regex-demo-phalcon)
 
 ## 项目介绍
 本仓库为Admin后台接口，基于[Phalcon基础开发框架](https://github.com/limingxinleo/basic-phalcon.git)开发。

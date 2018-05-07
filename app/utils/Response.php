@@ -31,7 +31,7 @@ class Response
         /** @var \Phalcon\Http\RequestInterface $request */
         $request = di('request');
         $uri = $request->getURI();
-        $params = $request->get();
+        $params = Request::get();
         $result = $data;
 
         $msg = PHP_EOL;

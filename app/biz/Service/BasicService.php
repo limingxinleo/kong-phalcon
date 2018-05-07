@@ -1,26 +1,22 @@
 <?php
 // +----------------------------------------------------------------------
-// | incrCommand.php [ WE CAN DO IT JUST THINK IT ]
+// | BasicService.php [ WE CAN DO IT JUST THINK IT ]
 // +----------------------------------------------------------------------
 // | Copyright (c) 2016-2017 limingxinleo All rights reserved.
 // +----------------------------------------------------------------------
 // | Author: limx <715557344@qq.com> <https://github.com/limingxinleo>
 // +----------------------------------------------------------------------
-namespace App\Utils\Redis\Commands;
+namespace App\Biz\Service;
 
-class IncrCommand implements CommandInterface
+use Xin\Swoole\Rpc\Handler\HanderInterface;
+use Xin\Traits\Common\InstanceTrait;
+
+class BasicService implements HanderInterface
 {
-    public static function getScript()
+    use InstanceTrait;
+
+    public function version()
     {
-        $script = <<<LUA
-    local result = 0;
-    result = redis.pcall('incr',KEYS[1]);
-    if(result)
-    then
-        redis.pcall('expire',KEYS[1],KEYS[2])
-    end
-    return result;
-LUA;
-        return $script;
+        return di('config')->version;
     }
 }

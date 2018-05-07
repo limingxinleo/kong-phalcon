@@ -5,6 +5,22 @@
 - [ ] php单元测试
 
 ### Added
+
+### Changed
+* 修改目录结构
+* 修改RedisUtil@incr & incrBy 增加超时时间的方法
+
+### Fixed
+* 修改SQL日志记录有误的BUG
+
+### Deleted
+* 删除App\Utils\Redis\Commands
+
+## [2.2.10]
+### Checked
+- [x] php单元测试
+
+### Added
 * 增加Request服务
 * 增加锁目录
 * 增加PID目录
@@ -19,8 +35,6 @@
 
 ### Fixed
 * 修改Mongodb用户名密码为空时无法使用的BUG
-
-### Deleted
 
 ## [2.2.5]
 ### Checked
