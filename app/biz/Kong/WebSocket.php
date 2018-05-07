@@ -11,7 +11,7 @@ namespace App\Biz\Kong;
 use Xin\Traits\Common\InstanceTrait;
 use swoole_websocket_server;
 
-class Response
+class WebSocket
 {
     use InstanceTrait;
 
