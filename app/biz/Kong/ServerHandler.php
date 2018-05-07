@@ -33,7 +33,7 @@ class ServerHandler
             while (true) {
                 $result = NodeStatus::getInstance()->get();
                 foreach ($server->connections as $fd) {
-                    WebSocket::getInstance()->success($fd, 'status', $result);
+                    WebSocket::getInstance()->response->success($fd, 'status', $result);
                 }
                 sleep(30);
             }
