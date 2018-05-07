@@ -26,12 +26,13 @@ class KongHandler extends Client
 
     use ServiceTrait, RouteTrait, ApiTrait, ConsumerTrait, PluginTrait;
 
-    public function __construct()
+    public function status()
     {
-        $node = Nodes::getInstance()->findFirst();
-        if (empty($node)) {
-            throw new BizException(ErrorCode::$ENUM_KONG_NODES_NOT_EXIST);
-        }
-        $this->baseUri = $node->url;
+        return $this->get('/status');
+    }
+
+    public function setBaseUri($uri)
+    {
+        $this->baseUri = $uri;
     }
 }

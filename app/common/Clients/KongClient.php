@@ -10,6 +10,7 @@ namespace App\Common\Clients;
 
 use App\Common\Enums\ErrorCode;
 use App\Common\Exceptions\BizException;
+use App\Models\Repository\Nodes;
 use GuzzleHttp\Exception\ClientException;
 use limx\Support\Arr;
 use Xin\Traits\Common\InstanceTrait;
@@ -17,6 +18,9 @@ use Xin\Traits\Common\InstanceTrait;
 /**
  * Class KongClient
  * @package App\Common\Clients
+ *
+ * @method status()
+ *
  * @method addService($params = [])
  * @method services($params = [])
  * @method updateService($idOrName, $params)
@@ -49,14 +53,30 @@ use Xin\Traits\Common\InstanceTrait;
  */
 class KongClient
 {
-    // composer require limingxinleo/x-trait-common
-    use InstanceTrait;
+    /** @var \App\Models\Nodes */
+    protected $node;
 
-    protected $handler;
+    protected static $_instances = [];
+
+    public static function getInstance($node = null)
+    {
+        if (!isset($node)) {
+            $node = Nodes::getInstance()->findFirst();
+        }
+
+        if (isset(static::$_instances[$node->id]) && static::$_instances[$node->id] instanceof static) {
+            return static::$_instances[$node->id];
+        }
+
+        $client = new static();
+        $client->node = $node;
+        return static::$_instances[$node->id] = $client;
+    }
 
     public function __call($name, $arguments)
     {
         $handler = KongHandler::getInstance();
+        $handler->setBaseUri($this->node->url);
         try {
             return $handler->$name(...$arguments);
         } catch (ClientException $ex) {
@@ -66,5 +86,13 @@ class KongClient
             if (empty($message)) $message = $body;
             throw new BizException(ErrorCode::$ENUM_KONG_API_FAIL, $message);
         }
+    }
+
+    /**
+     * @return \App\Models\Nodes
+     */
+    public function getNode()
+    {
+        return $this->node;
     }
 }
