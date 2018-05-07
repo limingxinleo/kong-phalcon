@@ -23,7 +23,7 @@ class WebSocket
     /**
      * @return WebSocket
      */
-    public function getInstance()
+    public static function getInstance()
     {
         return di('ws');
     }
