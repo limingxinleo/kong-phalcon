@@ -23,6 +23,7 @@ class KongTask extends Task
         echo Color::colorize('  services:update     更新服务', Color::FG_LIGHT_GREEN) . PHP_EOL;
         echo Color::colorize('  services:info       服务详情', Color::FG_LIGHT_GREEN) . PHP_EOL;
         echo Color::colorize('  services:delete     删除服务', Color::FG_LIGHT_GREEN) . PHP_EOL;
+        echo Color::colorize('  services:plugins    某服务的插件列表', Color::FG_LIGHT_GREEN) . PHP_EOL;
         echo PHP_EOL;
         echo Color::colorize('  routes:list         路由列表', Color::FG_LIGHT_GREEN) . PHP_EOL;
         echo Color::colorize('  routes:add          新增路由', Color::FG_LIGHT_GREEN) . PHP_EOL;
@@ -37,5 +38,15 @@ class KongTask extends Task
         echo Color::colorize('  apis:delete         删除API', Color::FG_LIGHT_GREEN) . PHP_EOL;
         echo PHP_EOL;
         echo Color::colorize('  consumers:add       新增消费者', Color::FG_LIGHT_GREEN) . PHP_EOL;
+        echo Color::colorize('  consumers:list      消费者列表', Color::FG_LIGHT_GREEN) . PHP_EOL;
+        echo Color::colorize('  consumers:update    更新消费者', Color::FG_LIGHT_GREEN) . PHP_EOL;
+        echo Color::colorize('  consumers:info      消费者详情', Color::FG_LIGHT_GREEN) . PHP_EOL;
+        echo Color::colorize('  consumers:delete    删除消费者', Color::FG_LIGHT_GREEN) . PHP_EOL;
+        echo PHP_EOL;
+        echo Color::colorize('  plugins:add         新增插件', Color::FG_LIGHT_GREEN) . PHP_EOL;
+        echo Color::colorize('  plugins:list        插件列表', Color::FG_LIGHT_GREEN) . PHP_EOL;
+        echo Color::colorize('  plugins:update      更新插件', Color::FG_LIGHT_GREEN) . PHP_EOL;
+        echo Color::colorize('  plugins:info        插件详情', Color::FG_LIGHT_GREEN) . PHP_EOL;
+        echo Color::colorize('  plugins:delete      删除插件', Color::FG_LIGHT_GREEN) . PHP_EOL;
     }
 }
