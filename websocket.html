@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+  var wsUri = "ws://127.0.0.1:8002/";
+  var websocket = new WebSocket(wsUri);
+
+  function handler() {
+    websocket.onopen = function (evt) {
+      onOpen(evt)
+    };
+    websocket.onclose = function (evt) {
+      onClose(evt)
+    };
+    websocket.onmessage = function (evt) {
+      console.log(evt);
+    };
+    websocket.onerror = function (evt) {
+      console.log(evt)
+    };
+  }
+
+  function onOpen(evt) {
+    writeToScreen("CONNECTED");
+    doSend(JSON.stringify({ id: "services", data: {} }));
+  }
+
+  function onClose(evt) {
+    writeToScreen("DISCONNECTED");
+  }
+
+  function doSend(message) {
+    writeToScreen("SENT: " + message);
+    setInterval(function () {
+      websocket.send(message);
+    }, 1000);
+  }
+
+  function writeToScreen(message) {
+    console.log(message);
+  }
+
+  handler();
+</script>
+</html>
