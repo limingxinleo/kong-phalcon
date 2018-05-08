@@ -2,7 +2,7 @@
 
 > 本项目以[limingxinleo/phalcon-project](https://github.com/limingxinleo/phalcon)为基础，进行简易封装。
 
-[![Build Status](https://travis-ci.org/limingxinleo/phalcon-unit-test.svg?branch=master)](https://travis-ci.org/limingxinleo/phalcon-unit-test)
+[![Build Status](https://travis-ci.org/limingxinleo/service-admin-api.svg?branch=master)](https://travis-ci.org/limingxinleo/service-admin-api)
 [![Total Downloads](https://poser.pugx.org/limingxinleo/phalcon-project/downloads)](https://packagist.org/packages/limingxinleo/phalcon-project)
 [![Latest Stable Version](https://poser.pugx.org/limingxinleo/phalcon-project/v/stable)](https://packagist.org/packages/limingxinleo/phalcon-project)
 [![Latest Unstable Version](https://poser.pugx.org/limingxinleo/phalcon-project/v/unstable)](https://packagist.org/packages/limingxinleo/phalcon-project)
@@ -33,4 +33,8 @@
 - [kafka](https://github.com/Aquarmini/kafka-demo-phalcon)
 - [机器学习](https://github.com/Aquarmini/ml-demo-phalcon)
 - [正则匹配](https://github.com/Aquarmini/regex-demo-phalcon)
+
+## 项目介绍
+本仓库基于[Phalcon Admin API](https://github.com/limingxinleo/service-admin-api)开发。
+对应前端模块[前端H5](https://github.com/limingxinleo/kong-vue)。
 

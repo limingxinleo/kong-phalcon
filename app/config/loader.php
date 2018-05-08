@@ -28,6 +28,7 @@ $loader
         ]
     )->registerFiles(
         [
+            $config->application->commonDir . 'common.php',
             $config->application->coreDir . 'helper.php',
         ]
     )->register();
