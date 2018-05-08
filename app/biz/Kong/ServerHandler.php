@@ -8,6 +8,7 @@
 
 namespace App\Biz\Kong;
 
+use App\Biz\Auth\WebSocketUser;
 use App\Biz\Kong\Workers\NodeStatus;
 use App\Common\Enums\RedisCode;
 use App\Utils\Redis;
@@ -35,8 +36,7 @@ class ServerHandler
             while (true) {
                 $result = NodeStatus::getInstance()->get();
                 foreach ($server->connections as $fd) {
-                    $redisKey = sprintf(RedisCode::KONG_FD_TOKEN_MAPPER, $fd);
-                    if (Redis::exists($redisKey)) {
+                    if (WebSocketUser::getInstance()->hasAuth($fd)) {
                         WebSocket::getInstance()->response->success($fd, 'status', $result);
                     }
                 }
