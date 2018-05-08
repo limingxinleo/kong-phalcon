@@ -47,7 +47,6 @@ class Nodes extends Model
      */
     public function initialize()
     {
-        $this->setSchema("kong");
         $this->setSource("nodes");
         parent::initialize();
     }

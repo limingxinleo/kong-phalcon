@@ -9,6 +9,7 @@
 namespace App\Biz\Kong;
 
 use App\Biz\Auth\User;
+use App\Biz\Kong\Workers\NodeStatus;
 use App\Common\Clients\KongClient;
 use App\Common\Enums\RedisCode;
 use App\Utils\Redis;
@@ -22,6 +23,11 @@ class MessageHandler
     public function services($data)
     {
         return KongClient::getInstance()->services($data);
+    }
+
+    public function status($data)
+    {
+        return NodeStatus::getInstance()->get();
     }
 
     /**

@@ -107,7 +107,6 @@ class User extends Model
      */
     public function initialize()
     {
-        $this->setSchema("kong");
         $this->setSource("user");
         $this->hasManyToMany(
             'id',

@@ -51,6 +51,7 @@ class KongTask extends BaseTask
         $fd = $frame->fd;
         try {
             $handler = MessageHandler::getInstance();
+            echo Color::colorize($frame->data, Color::FG_LIGHT_GREEN) . PHP_EOL;
             $data = json_decode($frame->data, true);
             if (empty($data) || !isset($data['id'])) {
                 throw new BizException(ErrorCode::$ENUM_PARAMS_ERROR);

@@ -20,6 +20,7 @@ abstract class Model extends BaseModel
     {
         // Sets if a model must use dynamic update instead of the all-field update
         $this->useDynamicUpdate(true);
+        $this->setSchema(di('config')->database->dbname);
     }
 
     public function beforeCreate()

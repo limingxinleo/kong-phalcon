@@ -47,7 +47,6 @@ class Role extends Model
      */
     public function initialize()
     {
-        $this->setSchema("kong");
         $this->setSource("role");
         $this->hasManyToMany(
             'id',

@@ -47,7 +47,6 @@ class UserRole extends Model
      */
     public function initialize()
     {
-        $this->setSchema("kong");
         $this->setSource("user_role");
         parent::initialize();
     }
