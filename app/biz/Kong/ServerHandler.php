@@ -9,6 +9,8 @@
 namespace App\Biz\Kong;
 
 use App\Biz\Kong\Workers\NodeStatus;
+use App\Common\Enums\RedisCode;
+use App\Utils\Redis;
 use Xin\Traits\Common\InstanceTrait;
 use swoole_websocket_server;
 use swoole_process;
@@ -33,7 +35,10 @@ class ServerHandler
             while (true) {
                 $result = NodeStatus::getInstance()->get();
                 foreach ($server->connections as $fd) {
-                    WebSocket::getInstance()->response->success($fd, 'status', $result);
+                    $redisKey = sprintf(RedisCode::KONG_FD_TOKEN_MAPPER, $fd);
+                    if (Redis::exists($redisKey)) {
+                        WebSocket::getInstance()->response->success($fd, 'status', $result);
+                    }
                 }
                 sleep(30);
             }

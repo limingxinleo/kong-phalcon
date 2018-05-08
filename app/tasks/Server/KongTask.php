@@ -59,7 +59,7 @@ class KongTask extends BaseTask
             $id = $data['id'];
             $arguments = $data['data'];
 
-            $result = $handler->$id($arguments);
+            $result = $handler->$id($arguments, $frame);
             $this->ws->response->success($fd, $id, $result);
         } catch (\Exception $ex) {
             if ($ex instanceof ExceptionInterface) {
