@@ -50,6 +50,10 @@ trait RouteTrait
      */
     public function routes($params = [])
     {
+        if (!isset($params['offset'])) {
+            unset($params['offset']);
+        }
+
         return $this->get('/routes/', [
             'json' => $params
         ]);

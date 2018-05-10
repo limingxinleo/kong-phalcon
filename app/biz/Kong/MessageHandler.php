@@ -24,6 +24,17 @@ class MessageHandler
     use InstanceTrait;
 
     /**
+     * @desc   节点状态
+     * @author limx
+     * @param $data
+     * @return array|mixed
+     */
+    public function status($data)
+    {
+        return NodeStatus::getInstance()->get();
+    }
+
+    /**
      * @desc   服务列表
      * @author limx
      * @param $data
@@ -39,15 +50,14 @@ class MessageHandler
         return $res;
     }
 
-    /**
-     * @desc   节点状态
-     * @author limx
-     * @param $data
-     * @return array|mixed
-     */
-    public function status($data)
+    public function routes($data)
     {
-        return NodeStatus::getInstance()->get();
+        $res = KongClient::getInstance()->routes($data);
+        foreach ($res['data'] as $key => $item) {
+            $res['data'][$key]['created_date'] = date('Y-m-d H:i:s', $item['created_at']);
+            $res['data'][$key]['updated_date'] = date('Y-m-d H:i:s', $item['updated_at']);
+        }
+        return $res;
     }
 
     /**
