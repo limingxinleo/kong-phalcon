@@ -44,3 +44,22 @@ if (!function_exists('get_default_avatar')) {
         return di('config')->domain . '/static/images/logo.png';
     }
 }
+
+
+if (!function_exists('get_kong_params')) {
+
+    /**
+     * @desc   获取默认头像
+     * @author limx
+     */
+    function get_kong_params($input, $mapper)
+    {
+        $params = [];
+        foreach ($mapper as $key => $desc) {
+            if (isset($input[$key])) {
+                $params[$key] = $input[$key];
+            }
+        }
+        return $params;
+    }
+}

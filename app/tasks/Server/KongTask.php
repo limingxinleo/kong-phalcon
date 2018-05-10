@@ -51,7 +51,7 @@ class KongTask extends BaseTask
         $fd = $frame->fd;
         try {
             $handler = MessageHandler::getInstance();
-            echo Color::colorize($frame->data, Color::FG_LIGHT_GREEN) . PHP_EOL;
+            echo Color::colorize($fd . ':' . $frame->data, Color::FG_LIGHT_GREEN) . PHP_EOL;
             $data = json_decode($frame->data, true);
             if (empty($data) || !isset($data['id'])) {
                 throw new BizException(ErrorCode::$ENUM_PARAMS_ERROR);
@@ -64,7 +64,7 @@ class KongTask extends BaseTask
             $this->ws->response->success($fd, $id, $result);
         } catch (\Exception $ex) {
             if ($ex instanceof ExceptionInterface) {
-                $this->ws->response->fail($server, $fd, $ex->getCode(), $ex->getMessage());
+                $this->ws->response->fail($fd, $ex->getCode(), $ex->getMessage());
             }
             $errMessage = "code:{$ex->getCode()}, message:{$ex->getMessage()}";
             echo Color::colorize($errMessage, Color::FG_LIGHT_RED) . PHP_EOL;
