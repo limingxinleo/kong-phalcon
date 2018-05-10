@@ -11,7 +11,9 @@ namespace App\Biz\Kong;
 use App\Biz\Auth\User;
 use App\Biz\Kong\Workers\NodeStatus;
 use App\Common\Clients\KongClient;
+use App\Common\Enums\ErrorCode;
 use App\Common\Enums\RedisCode;
+use App\Common\Exceptions\BizException;
 use App\Utils\Redis;
 use limx\Support\Arr;
 use Xin\Traits\Common\InstanceTrait;
@@ -80,5 +82,20 @@ class MessageHandler
             return KongClient::getInstance()->updateService($id, $data);
         }
         return KongClient::getInstance()->addService($data);
+    }
+
+    /**
+     * @desc   删除服务
+     * @author limx
+     * @param $data
+     */
+    public function deleteService($data, swoole_websocket_frame $frame)
+    {
+        if (!isset($data['id'])) {
+            throw new BizException(ErrorCode::$ENUM_KONG_SERVICE_ID_OR_NAME_NOT_EXIST);
+        }
+
+        $id = $data['id'];
+        return KongClient::getInstance()->deleteService($id);
     }
 }
