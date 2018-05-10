@@ -60,6 +60,18 @@ class MessageHandler
         return $res;
     }
 
+    public function serviceInfo($data)
+    {
+        if (!isset($data['id'])) {
+            throw new BizException(ErrorCode::$ENUM_KONG_SERVICE_ID_OR_NAME_NOT_EXIST);
+        }
+
+        $service = KongClient::getInstance()->getService($data['id']);
+        return [
+            'service' => $service
+        ];
+    }
+
     /**
      * @desc   初始化
      * @author limx
