@@ -74,4 +74,17 @@ trait ConsumerTrait
     {
         return $this->delete("/consumers/{$idOrName}");
     }
+
+    /**
+     * @desc   更新消费者权限用户名与密码
+     * @author limx
+     * @param $consumerId
+     */
+    public function updateConsumerBasicAuth($idOrUserName, $params)
+    {
+        unset($params['id']);
+        return $this->post("/consumers/{$idOrUserName}/basic-auth", [
+            'json' => $params
+        ]);
+    }
 }

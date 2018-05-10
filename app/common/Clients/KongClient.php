@@ -45,6 +45,7 @@ use Xin\Traits\Common\InstanceTrait;
  * @method consumers($params = [])
  * @method updateConsumer($idOrName, $params)
  * @method deleteConsumer($idOrName)
+ * @method updateConsumerBasicAuth($idOrUserName, $params)
  *
  * @method addPlugin($params)
  * @method plugins($params = [])

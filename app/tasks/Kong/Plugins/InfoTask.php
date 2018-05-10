@@ -3,6 +3,8 @@
 namespace App\Tasks\Kong\Plugins;
 
 use App\Common\Clients\KongClient;
+use App\Common\Enums\ErrorCode;
+use App\Common\Exceptions\BizException;
 use App\Tasks\Kong\KongTask;
 use App\Tasks\Task;
 
@@ -14,9 +16,11 @@ class InfoTask extends KongTask
 
     public function handle($params = [])
     {
-        $id = $this->getIdOrName();
+        if(!isset($params['id'])){
+            throw new BizException(ErrorCode::$ENUM_KONG_PLUGIN_ID_REQUIRED);
+        }
         $client = KongClient::getInstance();
-        $res = $client->getPlugin($id);
+        $res = $client->getPlugin($params['id']);
         $this->dump($res);
     }
 }
