@@ -72,6 +72,6 @@ trait PluginTrait
      */
     public function deletePlugin($idOrName)
     {
-        return $this->delete("/consumers/{$idOrName}");
+        return $this->delete("/plugins/{$idOrName}");
     }
 }

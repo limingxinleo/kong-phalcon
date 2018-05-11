@@ -72,6 +72,11 @@ php run kong:consumers:addBasicAuth name=limx username=limx2 password=910123
 # curl -X POST http://api.xxx.cn/demo -H 'Authorization: Basic bGlteDo5MTAxMjM=' 即可
 ~~~
 
+4. IP限制 ip-restriction
+~~~
+php run kong:plugins:add name=ip-restriction service_id=f3c89bff-ae39-42e9-8428-91ffd958f12b config.whitelist=127.0.0.1
+~~~
+
 
 
 
