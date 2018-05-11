@@ -8,8 +8,8 @@ use App\Tasks\Kong\KongTask;
 /**
  * Class UpdateBasicAuthTask
  * @package App\Tasks\Kong\Consumers
- * @help username=limx password=910123 ===> authroization:base64_encode('limx:910123') ====> bGlteDo5MTAxMjM=
- * @help curl -X POST http://api.coding.lmx0536.cn/demo -H 'Authorization: Basic bGlteDo5MTAxMjM=' 即可
+ * @help    username=limx password=910123 ===> authroization:base64_encode('limx:910123') ====> bGlteDo5MTAxMjM=
+ * @help    curl -X POST http://api.coding.lmx0536.cn/demo -H 'Authorization: Basic bGlteDo5MTAxMjM=' 即可
  */
 class UpdateBasicAuthTask extends KongTask
 {
@@ -34,6 +34,5 @@ class UpdateBasicAuthTask extends KongTask
         $res = $client->updateConsumerBasicAuth($idOrName, $params);
         $this->dump($res);
     }
-
 }
 
