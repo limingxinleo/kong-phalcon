@@ -43,6 +43,9 @@ class KongTask extends Task
         echo Color::colorize('  consumers:update    更新消费者', Color::FG_LIGHT_GREEN) . PHP_EOL;
         echo Color::colorize('  consumers:info      消费者详情', Color::FG_LIGHT_GREEN) . PHP_EOL;
         echo Color::colorize('  consumers:delete    删除消费者', Color::FG_LIGHT_GREEN) . PHP_EOL;
+        echo Color::colorize('  consumers:basicAuth 消费者基础权限列表', Color::FG_LIGHT_GREEN) . PHP_EOL;
+        echo Color::colorize('  consumers:addBasicAuth      为消费者增加基础权限', Color::FG_LIGHT_GREEN) . PHP_EOL;
+        echo Color::colorize('  consumers:deleteBasicAuth   为消费者删除基础权限', Color::FG_LIGHT_GREEN) . PHP_EOL;
         echo PHP_EOL;
         echo Color::colorize('  plugins:add         新增插件', Color::FG_LIGHT_GREEN) . PHP_EOL;
         echo Color::colorize('  plugins:list        插件列表', Color::FG_LIGHT_GREEN) . PHP_EOL;

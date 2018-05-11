@@ -11,27 +11,25 @@ use App\Tasks\Kong\KongTask;
  * @help    username=limx password=910123 ===> authroization:base64_encode('limx:910123') ====> bGlteDo5MTAxMjM=
  * @help    curl -X POST http://api.coding.lmx0536.cn/demo -H 'Authorization: Basic bGlteDo5MTAxMjM=' 即可
  */
-class UpdateBasicAuthTask extends KongTask
+class AddBasicAuthTask extends KongTask
 {
 
     public $params = [
         'id' => 'The consumer id.',
+        'name' => 'The consumer username.',
         'username' => 'The username to use in the Basic Authentication.',
         'password' => 'The password to use in the Basic Authentication.'
     ];
 
     public function handle($params = [])
     {
-        if (isset($params['id'])) {
-            $idOrName = $params['id'];
-        } else if (isset($params['username'])) {
-            $idOrName = $params['username'];
-        } else {
+        $id = $this->getIdOrName();
+        if (!isset($id)) {
             throw new BizException(ErrorCode::$ENUM_KONG_CONSUMER_ID_OR_USERNAME_NOT_EXIST);
         }
 
         $client = KongClient::getInstance();
-        $res = $client->updateConsumerBasicAuth($idOrName, $params);
+        $res = $client->updateConsumerBasicAuth($id, $params);
         $this->dump($res);
     }
 }

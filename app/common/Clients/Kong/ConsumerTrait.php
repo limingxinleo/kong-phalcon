@@ -83,8 +83,32 @@ trait ConsumerTrait
     public function updateConsumerBasicAuth($idOrUserName, $params)
     {
         unset($params['id']);
+        unset($params['name']);
         return $this->post("/consumers/{$idOrUserName}/basic-auth", [
             'json' => $params
         ]);
+    }
+
+    /**
+     * @desc   获取消费者BasicAuth列表
+     * @author limx
+     * @param $idOrUserName
+     * @return mixed
+     */
+    public function getConsumerBasicAuth($idOrUserName)
+    {
+        return $this->get("/consumers/{$idOrUserName}/basic-auth");
+    }
+
+    /**
+     * @desc   删除某消费者下的基础权限
+     * @author limx
+     * @param $idOrUserName 消费者ID
+     * @param $targetId     目标ID
+     * @return mixed
+     */
+    public function deleteConsumerBasicAuth($idOrUserName, $targetId)
+    {
+        return $this->delete("/consumers/{$idOrUserName}/basic-auth/{$targetId}");
     }
 }

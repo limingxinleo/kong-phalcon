@@ -38,3 +38,40 @@
 本仓库基于[Phalcon Admin API](https://github.com/limingxinleo/service-admin-api)开发。
 对应前端模块[前端H5](https://github.com/limingxinleo/kong-vue)。
 
+## 使用
+首先我们先添加服务和对应路由
+然后我们访问网关http://kong/demo 就可以代理到http://api.demo.phalcon.xin上。
+~~~
+php run kong:services:add name=demo url=http://api.demo.phalcon.xin
+php run kong:routes:add service.id=f3c89bff-ae39-42e9-8428-91ffd958f12b methods=POST methods=GET paths=/demo
+curl http://kong/demo/api ---> curl http://api.demo.phalcon.xin/api
+~~~
+
+插件的使用
+1. 调用频率限制 rate-limiting
+设置对应的service_id 和 频率即可
+~~~
+php run kong:plugins:add name=rate-limiting service_id=f3c89bff-ae39-42e9-8428-91ffd958f12b config.minute=2
+~~~
+
+2. 文件日志 file-log
+~~~
+php run kong:plugins:add name=file-log service_id=f3c89bff-ae39-42e9-8428-91ffd958f12b config.path=/www/log/kong
+~~~
+
+3. 基础权限验证 basic-auth
+~~~
+php run kong:plugins:add name=basic-auth service_id=f3c89bff-ae39-42e9-8428-91ffd958f12b
+# 设置对应消费者
+php run kong:consumers:add username=limx
+# 为对应消费者增加密码 id和name必传其一
+php run kong:consumers:updateBasicAuth id=5692bf90-7e0d-415f-ab7a-5e75aba8833d username=limx password=910123
+php run kong:consumers:updateBasicAuth id=5692bf90-7e0d-415f-ab7a-5e75aba8833d username=Agnes password=910123
+php run kong:consumers:addBasicAuth name=limx username=limx2 password=910123
+# username=limx password=910123 ===> authroization:base64_encode('limx:910123') ====> bGlteDo5MTAxMjM=
+# curl -X POST http://api.xxx.cn/demo -H 'Authorization: Basic bGlteDo5MTAxMjM=' 即可
+~~~
+
+
+
+
