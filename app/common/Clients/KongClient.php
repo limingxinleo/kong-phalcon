@@ -54,6 +54,7 @@ use Xin\Traits\Common\InstanceTrait;
  * @method updatePlugin($id, $params)
  * @method getPlugin($id)
  * @method deletePlugin($idOrName)
+ * @method enabledPlugins()
  */
 class KongClient
 {

@@ -52,5 +52,6 @@ class KongTask extends Task
         echo Color::colorize('  plugins:update      更新插件', Color::FG_LIGHT_GREEN) . PHP_EOL;
         echo Color::colorize('  plugins:info        插件详情', Color::FG_LIGHT_GREEN) . PHP_EOL;
         echo Color::colorize('  plugins:delete      删除插件', Color::FG_LIGHT_GREEN) . PHP_EOL;
+        echo Color::colorize('  plugins:enabled     可用的插件列表', Color::FG_LIGHT_GREEN) . PHP_EOL;
     }
 }
