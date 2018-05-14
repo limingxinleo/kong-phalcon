@@ -59,4 +59,18 @@ return [
         'config.whitelist' => 'Comma separated list of IPs or CIDR ranges to whitelist. One of config.whitelist or config.blacklist must be specified.',
         'config.blacklist' => 'Comma separated list of IPs or CIDR ranges to blacklist. One of config.whitelist or config.blacklist must be specified.',
     ],
+    'cors' => [
+        'id' => 'When update the plugin,the argument is required.',
+        'name' => 'The name of the plugin to use, in this case cors',
+        'api_id' => 'The id of the API which this plugin will target.',
+        'service_id' => 'The id of the Service which this plugin will target.',
+        'route_id' => 'The id of the Route which this plugin will target.',
+        'config.origins' => 'A comma-separated list of allowed domains for the Access-Control-Allow-Origin header. If you wish to allow all origins, add * as a single value to this configuration field. The accepted values can either be flat strings or PCRE regexes. NOTE: Prior to Kong 0.10.x, this parameter was config.origin (note the change in trailing s), and only accepted a single value, or the * special value.',
+        'config.methods' => 'Value for the Access-Control-Allow-Methods header, expects a comma delimited string (e.g. GET,POST).',
+        'config.headers' => 'Value for the Access-Control-Allow-Headers header, expects a comma delimited string (e.g. Origin, Authorization).',
+        'config.exposed_headers' => 'Value for the Access-Control-Expose-Headers header, expects a comma delimited string (e.g. Origin, Authorization). If not specified, no custom headers are exposed.',
+        'config.credentials' => 'Flag to determine whether the Access-Control-Allow-Credentials header should be sent with true as the value.',
+        'config.max_age' => 'Indicated how long the results of the preflight request can be cached, in seconds.',
+        'config.preflight_continue' => 'A boolean value that instructs the plugin to proxy the OPTIONS preflight request to the upstream service.',
+    ],
 ];
