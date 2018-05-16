@@ -38,6 +38,18 @@
 本仓库基于[Phalcon Admin API](https://github.com/limingxinleo/service-admin-api)开发。
 对应前端模块[前端H5](https://github.com/limingxinleo/kong-vue)。
 
+## 安装
+~~~
+git clone https://github.com/limingxinleo/kong-phalcon.git
+cd kong-phalcon
+composer install
+cp .env.example .env
+php run
+
+配置.env 中的DB参数
+php run kong
+~~~
+
 ## 使用
 首先我们先添加服务和对应路由
 然后我们访问网关http://kong/demo 就可以代理到http://api.demo.phalcon.xin上。
